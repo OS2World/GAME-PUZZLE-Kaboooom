@@ -1,0 +1,17 @@
+ICON 1 g:\sibyl\progs\kaboooom\kaboooom.ico
+BITMAP 1000 g:\sibyl\progs\kaboooom\bitmaps\0.bmp
+BITMAP 1001 g:\sibyl\progs\kaboooom\bitmaps\1.bmp
+BITMAP 1002 g:\sibyl\progs\kaboooom\bitmaps\2.bmp
+BITMAP 1003 g:\sibyl\progs\kaboooom\bitmaps\3.bmp
+BITMAP 1004 g:\sibyl\progs\kaboooom\bitmaps\4.bmp
+BITMAP 1005 g:\sibyl\progs\kaboooom\bitmaps\5.bmp
+BITMAP 1006 g:\sibyl\progs\kaboooom\bitmaps\6.bmp
+BITMAP 1007 g:\sibyl\progs\kaboooom\bitmaps\7.bmp
+BITMAP 1008 g:\sibyl\progs\kaboooom\bitmaps\8.bmp
+BITMAP 1009 g:\sibyl\progs\kaboooom\bitmaps\9.bmp
+BITMAP 2000 g:\sibyl\progs\kaboooom\bitmaps\mark.bmp
+BITMAP 2001 g:\sibyl\progs\kaboooom\bitmaps\bomb.bmp
+BITMAP 2002 g:\sibyl\progs\kaboooom\bitmaps\current.bmp
+BITMAP 2003 g:\sibyl\progs\kaboooom\bitmaps\finish.bmp
+BITMAP 2004 g:\sibyl\progs\kaboooom\bitmaps\exploded.bmp
+
