@@ -2,6 +2,8 @@
 
 Kaboooom! is a minefield walking puzzle for the OS/2 Presentation Manager: walk from the top left corner to the house in the bottom right corner without stepping on a hidden mine. Every cell you have walked on shows how many mines are around it.
 
+![Kaboooom ScreenShot](/doc/Kaboooom.png)
+
 Based on the game Kaboooom! by Alex Lane (Dr. Dobb's Journal #163, April 1990), written for OS/2 by Michael G. Slack in 1997-1998 (Sibyl). Ported to C and Open Watcom 2.0 in 2026.
 
 ## Version
