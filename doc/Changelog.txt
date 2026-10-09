@@ -1,0 +1,42 @@
+Kaboooom - Changelog
+====================
+
+1.07 (2026-10-09)
+- Rewritten in C for OpenWatcom 2.0 (the Sibyl Pascal source is in legacy\)
+- New project layout: src/, bin/, doc/, help/, legacy/
+- Menus: Game / Options / Help with Ctrl+N (new game), Ctrl+E (Computer
+  Help), Ctrl+X (exit), Ctrl+F (Frame Controls)
+- 6 languages for the interface and the online help (English, Spanish,
+  Dutch, German, French, Italian), switchable at runtime; the language
+  is saved
+- Walk by clicking a cell next to you, with the cursor keys, with the
+  numeric keypad or with the pad of buttons; mark with the right mouse
+  button or Ctrl + a cursor key
+- Computer Help rewritten: three rules (all safe, all mines, comparing two
+  numbers) are repeated until nothing more is found, so the endless loop
+  of the Pascal version is gone; your own marks are ignored while it thinks
+- Messages are shown in the window instead of in message boxes
+- When the game is over the question "Start a new game?" no longer closes
+  the program on No
+- Settings are saved to Kaboooom.cfg (instead of the OS/2 profile); "Save
+  settings on exit" is on by default
+- Four wave files (beep, finish, explode, negative) are played by MMPM/2 from
+  the sounds folder next to the program; a plain beep is used if a file or
+  MMPM/2 is missing. The sound file choice of the Pascal version is gone:
+  replace the files to change the sounds
+- Sound is on by default
+- Standard About dialog and BLDLEVEL information
+
+1.05 (1998-02-28)
+- Original release by Michael G. Slack (Sibyl): changed OK behavior in the
+  settings dialog (fixpack 2 error)
+
+1.04 (1997-12-15)
+- Conditional around the bitmap resources for a Win32 compile
+
+1.03 (1997-12-07)
+- Compiled with the retail version, added the end game dialog
+
+1.01 (1997-09-01)
+- Various changes: removed the new-game restart after new settings,
+  start and home are no longer surrounded by bombs (1997-10-05)

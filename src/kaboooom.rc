@@ -1,0 +1,166 @@
+/*******************************************************************************
+* KABOOOOM.RC - resources of Kaboooom!
+*
+* Copyright (C) 1997-1998 Michael G. Slack
+* Copyright (C) 2026 OS2World
+*******************************************************************************/
+
+#include <os2.h>
+#include "kaboooom.h"
+
+ICON ID_MAIN PRELOAD src\kaboooom.ico
+
+
+/*******************************************************************************
+* Menu. The texts are replaced at runtime (set_language); these are the
+* English defaults. Menu ids follow plan.txt section 6.4.
+*******************************************************************************/
+
+MENU ID_MAIN PRELOAD MOVEABLE
+BEGIN
+    SUBMENU "~Game", IDM_SUBMENU_GAME
+    BEGIN
+        MENUITEM "~New Game\tCtrl+N",       IDM_NEW
+        MENUITEM "~Computer Help\tCtrl+E",  IDM_EVAL
+        MENUITEM SEPARATOR
+        MENUITEM "E~xit\tCtrl+X",           IDM_EXIT
+    END
+
+    SUBMENU "~Options", IDM_SUBMENU_OPTIONS
+    BEGIN
+        MENUITEM "~Settings...",            IDM_SETTINGS
+        MENUITEM SEPARATOR
+        SUBMENU "~Language", IDM_SUBMENU_LANG
+        BEGIN
+            MENUITEM "~English",            IDM_LANG_EN
+            MENUITEM "~Espanol",            IDM_LANG_ES
+            MENUITEM "~Nederlands",         IDM_LANG_NL
+            MENUITEM "~Deutsch",            IDM_LANG_DE
+            MENUITEM "~Francais",           IDM_LANG_FR
+            MENUITEM "~Italiano",           IDM_LANG_IT
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "~Frame Controls\tCtrl+F", IDM_FRAME
+        MENUITEM SEPARATOR
+        MENUITEM "~Save settings on exit",  IDM_SAVEONEXIT
+    END
+
+    SUBMENU "~Help", IDM_SUBMENU_HELP
+    BEGIN
+        MENUITEM "~Help for help...",       IDM_HELPUSING, , MIA_DISABLED
+        MENUITEM "~Extended help...",       IDM_HELPEXT, , MIA_DISABLED
+        MENUITEM "~Keys help...",           IDM_HELPKEYS, , MIA_DISABLED
+        MENUITEM "Help ~index...",          IDM_HELPINDEX, , MIA_DISABLED
+        MENUITEM SEPARATOR
+        MENUITEM "~About...",               IDM_ABOUT
+    END
+END
+
+
+/*******************************************************************************
+* Accelerators. The keys of the numeric pad (7 8 9 / 4 5 6 / 1 2 3) and the
+* cursor keys move; Ctrl and a cursor key marks the cell in that direction.
+*******************************************************************************/
+
+ACCELTABLE ID_MAIN PRELOAD
+BEGIN
+    "n", IDM_NEW,  CONTROL
+    "N", IDM_NEW,  CONTROL
+    "e", IDM_EVAL, CONTROL
+    "E", IDM_EVAL, CONTROL
+    "x", IDM_EXIT, CONTROL
+    "X", IDM_EXIT, CONTROL
+    "f", IDM_FRAME, CONTROL
+    "F", IDM_FRAME, CONTROL
+    "7", 130, CHAR
+    "8", 131, CHAR
+    "9", 132, CHAR
+    "4", 133, CHAR
+    "5", 134, CHAR
+    "6", 135, CHAR
+    "1", 136, CHAR
+    "2", 137, CHAR
+    "3", 138, CHAR
+    VK_HOME, 130, VIRTUALKEY
+    VK_UP, 131, VIRTUALKEY
+    VK_PAGEUP, 132, VIRTUALKEY
+    VK_LEFT, 133, VIRTUALKEY
+    VK_RIGHT, 135, VIRTUALKEY
+    VK_END, 136, VIRTUALKEY
+    VK_DOWN, 137, VIRTUALKEY
+    VK_PAGEDOWN, 138, VIRTUALKEY
+    VK_HOME, 150, VIRTUALKEY, CONTROL
+    VK_UP, 151, VIRTUALKEY, CONTROL
+    VK_PAGEUP, 152, VIRTUALKEY, CONTROL
+    VK_LEFT, 153, VIRTUALKEY, CONTROL
+    VK_RIGHT, 155, VIRTUALKEY, CONTROL
+    VK_END, 156, VIRTUALKEY, CONTROL
+    VK_DOWN, 157, VIRTUALKEY, CONTROL
+    VK_PAGEDOWN, 158, VIRTUALKEY, CONTROL
+    27,  IDM_ESCAPE, CHAR
+END
+
+
+/*******************************************************************************
+* About dialog (plan.txt section 11): English in every language.
+*******************************************************************************/
+
+DLGTEMPLATE DLG_ABOUT PRELOAD MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG "About Kaboooom", DLG_ABOUT, 32, 24, 240, 110,, FCF_TITLEBAR|FCF_DLGBORDER
+    BEGIN
+        CTEXT "Kaboooom for OS/2",              -1, 10, 90, 220, 8
+        CTEXT "Version 1.07",                   -1, 10, 78, 220, 8
+        CTEXT "OpenWatcom Release",             -1, 10, 66, 220, 8
+        CTEXT "(c) 1997-1998, Michael G. Slack", -1, 10, 54, 220, 8
+        CTEXT "(c) 2026, OS2World",             -1, 10, 42, 220, 8
+        CTEXT "BSD 3-Clause",                   -1, 10, 30, 220, 8
+        DEFPUSHBUTTON "Close", DID_OK,           98, 10, 44, 14, WS_GROUP
+    END
+END
+
+
+/*******************************************************************************
+* Settings dialog
+*******************************************************************************/
+
+DLGTEMPLATE DLG_SETTINGS PRELOAD MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG "Settings", DLG_SETTINGS, 40, 40, 236, 132,, FCF_SYSMENU|FCF_TITLEBAR
+    BEGIN
+        CONTROL "Safe ~game", IDD_SAFE, 12, 110, 210, 10, "#3", BS_AUTOCHECKBOX|WS_VISIBLE|WS_GROUP|WS_TABSTOP
+        CONTROL "~Sounds on", IDD_SOUND, 12, 98, 210, 10, "#3", BS_AUTOCHECKBOX|WS_VISIBLE|WS_TABSTOP
+        CONTROL "~Verbose computer messages", IDD_VERBOSE, 12, 86, 210, 10, "#3", BS_AUTOCHECKBOX|WS_VISIBLE|WS_TABSTOP
+        CONTROL "Con~firmations on", IDD_CONFIRM, 12, 74, 210, 10, "#3", BS_AUTOCHECKBOX|WS_VISIBLE|WS_TABSTOP
+
+        CONTROL "~Random number of bombs", IDD_RANDOM, 12, 56, 210, 10, "#3", BS_AUTOCHECKBOX|WS_VISIBLE|WS_TABSTOP
+        CONTROL "Number of bombs:", IDD_NUMTXT, 12, 42, 100, 8, "#5", SS_TEXT|DT_LEFT|DT_TOP|WS_VISIBLE|WS_GROUP
+        CONTROL "", IDD_NUM, 116, 40, 36, 10, "#6", ES_AUTOSCROLL|ES_MARGIN|WS_VISIBLE|WS_GROUP|WS_TABSTOP
+        CONTROL "(10-40)", IDD_RANGE, 158, 42, 60, 8, "#5", SS_TEXT|DT_LEFT|DT_TOP|WS_VISIBLE|WS_GROUP
+
+        DEFPUSHBUTTON "OK", DID_OK, 40, 8, 54, 14, WS_GROUP
+        PUSHBUTTON "Cancel", DID_CANCEL, 140, 8, 54, 14
+    END
+END
+
+
+/*******************************************************************************
+* Bitmaps (10 x 20): the digits, the mark, the mine, you, home and the
+* exploded mine
+*******************************************************************************/
+
+BITMAP 1000 src\bitmaps\0.bmp
+BITMAP 1001 src\bitmaps\1.bmp
+BITMAP 1002 src\bitmaps\2.bmp
+BITMAP 1003 src\bitmaps\3.bmp
+BITMAP 1004 src\bitmaps\4.bmp
+BITMAP 1005 src\bitmaps\5.bmp
+BITMAP 1006 src\bitmaps\6.bmp
+BITMAP 1007 src\bitmaps\7.bmp
+BITMAP 1008 src\bitmaps\8.bmp
+BITMAP 1009 src\bitmaps\9.bmp
+BITMAP 2000 src\bitmaps\mark.bmp
+BITMAP 2001 src\bitmaps\bomb.bmp
+BITMAP 2002 src\bitmaps\current.bmp
+BITMAP 2003 src\bitmaps\finish.bmp
+BITMAP 2004 src\bitmaps\exploded.bmp
